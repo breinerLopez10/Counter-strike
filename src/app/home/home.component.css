@@ -1,0 +1,22 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2,h3{
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+}
+.titttle-proyect{
+    margin-top: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.home-margin{
+
+    margin-left: 50px;
+
+}

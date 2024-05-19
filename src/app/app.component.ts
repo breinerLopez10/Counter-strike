@@ -1,62 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'; // Asegúrate de importar esto
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
-
-
-interface Agent {
-  id: string;
-  name: string;
-  description: string;
-  rarity: {
-    id: string;
-    name: string;
-    color: string;
-  };
-  collections: {
-    id: string;
-    name: string;
-    image: string;
-  }[];
-  team: {
-    id: string;
-    name: string;
-  };
-  market_hash_name: string;
-  image: string;
-}
+import { NgModel } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
+  imports: [CommonModule, HttpClientModule,NavbarComponent,HomeComponent,RouterOutlet],
   templateUrl: './app.component.html',
-  imports: [ HttpClientModule, CommonModule], // Asegúrate de importar esto
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  title = 'counter-analisis';
-  agents: Agent[] = [];
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
-    const appId = 730;  // App ID for CS: GO
-const currency = 1; // USD
-const url = `https://api.steamapis.com/market/apps?api_key={}`;
-    this.http.get<any>(url).subscribe(
-      (response) => {
-        this.agents = Object.values(response);
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
+export class AppComponent {
 }

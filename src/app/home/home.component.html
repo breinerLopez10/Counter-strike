@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<div class="home-margin">
+
+
+<h1 class="titttle-proyect">Modelo y Simulación de Artículos de Counter Strike en Steam</h1>
+
+<br/>
+<br/>
+<br/>
+
+<h2>Lista de Artículos</h2>
+<div *ngIf="marketItems.length > 0; else noItems">
+  <div *ngFor="let item of marketItems">
+    <p><strong>Nombre:</strong> {{ item.name }}</p>
+    <p><strong>Precio:</strong> {{ item.price }}</p>
+  </div>
+</div>
+<ng-template #noItems>
+  <p>No hay artículos disponibles.</p>
+</ng-template>
+
+<h2>Actividad y Solicitudes de Items</h2>
+<div *ngIf="activityData.length > 0; else noActivity">
+  <div *ngFor="let activity of activityData">
+    <p><strong>Tipo:</strong> {{ activity.type }}</p>
+    <p><strong>Cantidad:</strong> {{ activity.quantity }}</p>
+    <p><strong>Precio:</strong> {{ activity.price_str }}</p>
+    <p><strong>Hora:</strong> {{ activity.time | date:'medium' }}</p>
+    <p><strong>Avatar del Comprador:</strong>
+      <img *ngIf="activity.avatar_buyer" [src]="activity.avatar_buyer" alt="Avatar del Comprador">
+    </p>
+    <p><strong>Avatar del Vendedor:</strong>
+      <img *ngIf="activity.avatar_seller" [src]="activity.avatar_seller" alt="Avatar del Vendedor">
+    </p>
+    <p><strong>Comprador:</strong> {{ activity.persona_buyer }}</p>
+    <p><strong>Vendedor:</strong> {{ activity.persona_seller }}</p>
+    <hr>
+  </div>
+</div>
+<ng-template #noActivity>
+  <p>No hay actividad disponible.</p>
+</ng-template>
+
+<h3>Simulación de Nuevo Artículo y Valor Obtenido a partir de sus Características</h3>
+
+
+
+
+
+
+
+
+
+<div >
+  <p><strong>Nombre:</strong> Nombre</p>
+  <p><strong>Precio:</strong> precio</p>
+  <p><strong>Calidad:</strong>Alta</p>
+  <p><strong>Desgaste:</strong> Poco uso</p>
+  <p><strong>Color:</strong> azul</p>
+  <p><strong>Valor del articulo estimado:</strong> valor medio-alto </p>
+
+</div>

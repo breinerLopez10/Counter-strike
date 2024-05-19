@@ -1,11 +1,3 @@
-<h1>{{ title }}</h1>
 
-<div *ngFor="let agent of agents">
-  <h2>{{ agent.name }}</h2>
-  <p>{{ agent.description }}</p>
-  <img [src]="agent.image" alt="Agent Image">
-  <div *ngFor="let collection of agent.collections">
-    <p>{{ collection.name }}</p>
-    <img [src]="collection.image" alt="Collection Image">
-  </div>
-</div>
+
+<router-outlet></router-outlet>
